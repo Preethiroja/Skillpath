@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans overflow-x-hidden;
+  }
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  @apply bg-white/70 dark:bg-slate-900/60 backdrop-blur-md border border-slate-200/50 dark:border-slate-800/40;
+}
+
+.glass-card {
+  @apply bg-white/80 dark:bg-slate-900/70 backdrop-blur-lg border border-slate-200/40 dark:border-slate-800/30 shadow-xl shadow-slate-100/50 dark:shadow-none;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-800 rounded-full hover:bg-slate-400 dark:hover:bg-slate-700;
+}
+
+/* Text glow */
+.text-glow {
+  text-shadow: 0 0 20px rgba(31, 157, 132, 0.35);
+}
+
+/* Custom background grid */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
+}
+.dark .bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(51, 65, 85, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(51, 65, 85, 0.1) 1px, transparent 1px);
+}
+
+/* Signature: topographic contour lines, evoking a trail map — the visual
+   throughline for "Learning Path". Layered concentric ellipses at varying
+   offsets rather than a repeating tile, so it reads as terrain, not wallpaper. */
+.bg-trail-pattern {
+  background-image:
+    repeating-radial-gradient(ellipse 140% 100% at 15% -10%, transparent 0, transparent 38px, rgba(31, 157, 132, 0.14) 39px, rgba(31, 157, 132, 0.14) 40px),
+    repeating-radial-gradient(ellipse 120% 90% at 110% 120%, transparent 0, transparent 46px, rgba(245, 156, 10, 0.12) 47px, rgba(245, 156, 10, 0.12) 48px);
+}
+.dark .bg-trail-pattern {
+  background-image:
+    repeating-radial-gradient(ellipse 140% 100% at 15% -10%, transparent 0, transparent 38px, rgba(58, 184, 156, 0.16) 39px, rgba(58, 184, 156, 0.16) 40px),
+    repeating-radial-gradient(ellipse 120% 90% at 110% 120%, transparent 0, transparent 46px, rgba(255, 179, 32, 0.14) 47px, rgba(255, 179, 32, 0.14) 48px);
+}
+
+/* Dotted trail line — used to connect waypoint-style UI (auth panels, steps) */
+.trail-divider {
+  background-image: radial-gradient(circle, currentColor 1.5px, transparent 1.5px);
+  background-size: 10px 10px;
+  background-repeat: repeat-x;
+  background-position: center;
+  height: 2px;
+}
